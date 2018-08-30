@@ -176,7 +176,7 @@ El objetivo de esta actividad es aprender a crear e implementar funcionalidades 
 	<title></title>
 </head>
 <body>
-    <button>Clasificar Arreglo</button> 
+    <button onClick="sortList()">Clasificar Arreglo</button> 
     <ul id="par">
         <strong>Pares</strong>
     </ul>
@@ -187,7 +187,63 @@ El objetivo de esta actividad es aprender a crear e implementar funcionalidades 
         <strong>Strings</strong>
     </ul>
     <script>
-        var arr = [1,'dos','tres',4,5,6,'siete',8,9,'diez'];
+         var arr = [1,'dos','tres',4,5,6,'siete',8,9,'diez'];
+	var strings = [];
+	var pares = [];
+	var impares = [];
+	var string = document.getElementById('string');
+	var impar = document.getElementById('impar');
+	var par = document.getElementById('par');
+	function sortList(){
+
+	   arr.forEach(function(a){
+	     if(typeof a == "string"){
+	       strings.push(a);
+	     }
+	     else{
+	       if(a %2 == 0){
+		 pares.push(a);
+	       }
+	       else{
+		 impares.push(a);
+	       }
+	     }
+	   });
+
+	   var ul3 = document.createElement("ul");
+	   strings.forEach(function(x){        
+	     var li3 = document.createElement("li");
+	     var pe3 = document.createElement("p");
+	     node = document.createTextNode(x);
+	     pe3.appendChild(node);
+	     li3.appendChild(pe3);
+	     ul3.appendChild(li3);
+	   });
+	   string.appendChild(ul3);
+
+	   var ul2 = document.createElement("ul");
+	   pares.forEach(function(x){
+	     var li2 = document.createElement("li");
+	     var pe2 = document.createElement("p");
+	     node = document.createTextNode(x);
+	     pe2.appendChild(node);
+	     li2.appendChild(pe2);
+	     ul2.appendChild(li2);
+
+	   });        
+	   par.appendChild(ul2);
+
+	   var ul = document.createElement("ul");
+	   impares.forEach(function(x){
+	     var li = document.createElement("li");
+	     var pe = document.createElement("p");
+	     node = document.createTextNode(x);
+	     pe.appendChild(node);
+	     li.appendChild(pe);
+	     ul.appendChild(li);
+	   });
+	   impar.appendChild(ul);
+	}
     </script>
 </body>
 </html>
