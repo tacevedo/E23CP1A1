@@ -18,13 +18,16 @@ El objetivo de esta actividad es aprender a crear e implementar funcionalidades 
   </head>
   <body>
     <script type="text/javascript">
-    a = prompt("ingresa un número");
-    b = prompt("ingresa otro número");
-    alert("la suma es " + a + b );
+	a = prompt("ingresa un número");
+	b = prompt("ingresa otro número");
+	var suma = parseInt(a) + parseInt(b);
+	alert("la suma es " + suma );
     </script>
   </body>
 </html>
 ~~~
+
+
 
 ## Ejercicio 2:
 
@@ -41,10 +44,13 @@ El objetivo de esta actividad es aprender a crear e implementar funcionalidades 
   </head>
   <body>
     <script>
-      prompt("Ingresa tu edad");
-      if (edad = 18){
-          alert(Eres mayor de edad);
-      }
+	edad = prompt("Ingresa tu edad");
+	if (edad >= 18){
+	  alert("Eres mayor de edad");
+	} 
+	else{
+	  alert("eres menor de edad");
+	}
     </script>
   </body>
 </html>
@@ -68,10 +74,12 @@ El objetivo de esta actividad es aprender a crear e implementar funcionalidades 
       var dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes"]
       var parent_tag = document.getElementById('dias');
       dias.map(function(x){
+        var li = document.createElement("li");
         var doc_element = document.createElement("p");
-        node = document.createTextNode("HOLA");
+        node = document.createTextNode(x);
         doc_element.appendChild(node);
-        parent_tag.appendChild(doc_element);
+        li.appendChild(doc_element);
+        parent_tag.appendChild(li);
       });
     </script>
   </body>
@@ -97,8 +105,14 @@ El objetivo de esta actividad es aprender a crear e implementar funcionalidades 
     <script>
         var timer_tag = document.getElementById('timer');
         var timer = timer_tag.innerHTML;
+        var h1 = document.getElementsByTagName("H1")[0];
         timer = parseInt(timer);
         setInterval(function(){
+         if (timer == 0){
+           h1.style.backgroundColor = "red";
+           h1.innerHTML="BOOM!";
+           return;
+         }
           timer = timer - 1
           timer_tag.innerHTML = timer
         }, 1000);
