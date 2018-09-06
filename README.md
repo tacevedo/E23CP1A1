@@ -276,6 +276,104 @@ El objetivo de esta actividad es aprender a crear e implementar funcionalidades 
 <ol class="done" id="done">
 	<h3>Done:</h3>
 </ol>
+<script>
+	var asdf = [{
+			"completed":false,
+			"id":1,
+			"title":"Delectus aut autem",
+		},
+		{
+			"completed":false,
+			"id":2,
+			"title":"Quis ut nam facilis et officia qui",
+		},
+		{
+			"completed":false,
+			"id":3,
+			"title":"Fugiat veniam minus",
+		},
+		{
+			"completed":true,
+			"id":4,
+			"title":"Et porro tempora",
+		},
+		{
+			"completed":false,
+			"id":5,
+			"title":"Laboriosam mollitia et enim quasi adipisci quia provident illum",
+		},
+		{
+			"completed":false,
+			"id":6,
+			"title":"Qui ullam ratione quibusdam voluptatem quia omnis",
+		},
+		{
+			"completed":false,
+			"id":7,
+			"title":"Illo expedita consequatur quia in",
+			"userId":1
+		},
+		{
+			"completed":true,
+			"id":8,
+			"title":"Quo adipisci enim quam ut ab",
+		},
+		{
+			"completed":false,
+			"id":9,
+			"title":"Molestiae perspiciatis ipsa",
+		},
+		{
+			"completed":true,
+			"id":10,
+			"title":"Illo est ratione doloremque quia maiores aut",
+		}];
+window.onload = function() {
+  var todo = document.getElementById('todo');
+  var done = document.getElementById('done');
+  var ult = document.createElement("ul");
+  var uld = document.createElement("ul");
+  
+  asdf.forEach(function(a){
+    if(a.completed){
+         var li = document.createElement("li");
+         var pe = document.createElement("p");
+         node = document.createTextNode(a.title);
+
+         pe.appendChild(node);
+         li.addEventListener('click', function(){ completeTask(a.id);}, false);
+          // li.onclick = function () {
+          //     completeTask(a.id);
+          // };
+     li.appendChild(pe);
+         uld.appendChild(li);
+              
+    }
+    else{
+         var li = document.createElement("li");
+         var pe = document.createElement("p");
+         node = document.createTextNode(a.title);
+         pe.appendChild(node);
+         li.appendChild(pe);
+        li.addEventListener('click', function(){ completeTask(a.id);}, false);
+         ult.appendChild(li);
+    }
+    todo.appendChild(ult);
+    done.appendChild(uld);
+  });  
+ 
+   function completeTask(task){
+     console.log(t);
+      // var data = asdf.map(function(t){
+      //   if (t.id == task){
+      //     console.log(t);
+      //     return t;
+      //   }
+      // }) 
+      // console.log(data);
+   }
+}
+</script>
 </body>
 </html>
 
